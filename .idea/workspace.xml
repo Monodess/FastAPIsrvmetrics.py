@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="sqlalchemy(one)">
-      <change afterPath="$PROJECT_DIR$/mainproj/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mainproj/ic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mainproj/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainproj/app/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/FastAPIsrvmetrics.py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FastAPIsrvmetrics.py.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter6/bringdatafromgit.py" beforeDir="false" afterPath="$PROJECT_DIR$/chapter6/bringdatafromgit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainproj/data_capturer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/data_capturer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainproj/ic.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/ic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +35,12 @@
     &quot;assignee&quot;: &quot;Monodess&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Monodess/FastAPIsrvmetrics.py&quot;,
-    &quot;accountId&quot;: &quot;1220733e-3616-4817-9d1a-dcc7ab161bc5&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Monodess/FastAPIsrvmetrics.py.git",
+    "accountId": "59b4a5fb-dd9d-48da-bfbe-40591a9960e9"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/pydantic_settings/main.py" root0="SKIP_INSPECTION" />
   </component>
@@ -50,40 +52,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.1engine.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.data_capturer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.engine.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ic.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.model_capturing.executor&quot;: &quot;Run&quot;,
-    &quot;Python.router.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.1engine.executor": "Run",
+    "Python.config.executor": "Run",
+    "Python.data_capturer.executor": "Run",
+    "Python.engine.executor": "Run",
+    "Python.ic.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.model_capturing.executor": "Run",
+    "Python.router.executor": "Run",
+    "Python.settings.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\alchemy" />
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\Config" />
+      <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj" />
+      <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\Settings" />
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\mainproj" />
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\fastapi" />
-      <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\alchemy" />
-      <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\chapter6" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,6 +113,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ic" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="FastAPIsrvmetrics.py" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mainproj" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainproj/ic.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.config" />
@@ -118,7 +144,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-7bb8055f9097-cbfc7b97e6b2-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-252.28238.29" />
+        <option value="bundled-python-sdk-890ed5b35930-d9c5bdb153f4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.23774.444" />
       </set>
     </attachedChunks>
   </component>
@@ -199,5 +225,16 @@
     <MESSAGE value="+ pagespeed" />
     <MESSAGE value="sqlalchemy(one)" />
     <option name="LAST_COMMIT_MESSAGE" value="sqlalchemy(one)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

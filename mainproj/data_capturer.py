@@ -1,22 +1,16 @@
 import asyncio, time
 import httpx
-import aiosqlite
-import sqlalchemy as sa
-import pandas
-import dotenv, os
-
-API_KEY = os.getenv("PAGESPEED_API_KEY")
-
-
+from icecream import ic
+from app.settings import settings
 
 #see what structure and how much labels it has
 #premake data model and migrate to db with py ef
 #check if i could turn captured data in csv with pands
 #taught the model and prepare datasets for it with labels(tight answers) and both test and validation
-DB = "picsum_metrics.db"
+
 URLS = ["https://docs.python.org/uk/3.13/library/__main__.html"]
 
-#
+#metrics capturing functin
 async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, api_key: str):
     # CRITICAL: Use the API endpoint, not the web URL
     base_url = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
@@ -29,12 +23,13 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
 
     try:
         response = await client.get(base_url, params=params, timeout=30.0)  # PageSpeed is slow
-        print(response)
+        ic(response)
         if response.status_code == 200:
             data = response.json()  # Fixed: json is a method (), not a property
 
             lighthouse = data.get("lighthouseResult", {})
             audits = lighthouse.get("audits", {})
+
 
             return {
                 "overall_score": lighthouse.get("categories", {}).get("performance", {}).get("score"),
@@ -60,6 +55,7 @@ async def fetch_once(client: httpx.AsyncClient, url: str):
         return (int(time.time()), url, None, latency_ms, 0, str(e))
 
 
+
 async def loop(urls, api_key):
     limits = httpx.Limits(max_connections=5)
     # The client lives here for the entire duration of the program
@@ -68,10 +64,14 @@ async def loop(urls, api_key):
             for u in urls:
                 health = await fetch_once(client, u)
                 metrics = await fetch_pagespeed_metrics(client, u, api_key)
-                print("hi")
-                print(f"Health check success: {health},\n"
+                print(f"Health check: {health},\n"
                       f"Metrics captured: {metrics}")
-            return {health, metrics}
+            return (health, metrics)                #returning tuple
+
+async def getlimit(api_key):
+
+if __name__ == '__main__':
+    data =  asyncio.run(loop(URLS, settings.PAGESPEED_API_KEY))     #only once making main coroutine
 
 
-data = asyncio.run(loop(URLS, API_KEY))
+

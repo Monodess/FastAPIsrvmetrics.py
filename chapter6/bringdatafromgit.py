@@ -6,6 +6,6 @@ data_path = Path("data/")
 image_path = data_path/"pizza_steak_sushi"
 
 if image_path.is_dir():
-
+    pass
 else:
     image_path.mkdir()
