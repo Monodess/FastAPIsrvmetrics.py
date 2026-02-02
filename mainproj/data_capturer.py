@@ -16,7 +16,7 @@ API_KEY = os.getenv("PAGESPEED_API_KEY")
 DB = "picsum_metrics.db"
 URLS = ["https://docs.python.org/uk/3.13/library/__main__.html"]
 
-
+#
 async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, api_key: str):
     # CRITICAL: Use the API endpoint, not the web URL
     base_url = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
@@ -29,6 +29,7 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
 
     try:
         response = await client.get(base_url, params=params, timeout=30.0)  # PageSpeed is slow
+        print(response)
         if response.status_code == 200:
             data = response.json()  # Fixed: json is a method (), not a property
 
@@ -46,7 +47,7 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
         print(f"PageSpeed Error for {target_url}: {e}")
     return None
 
-
+#health check function
 async def fetch_once(client: httpx.AsyncClient, url: str):
     t0 = time.perf_counter()
     try:
@@ -66,10 +67,11 @@ async def loop(urls, api_key):
         while True:
             for u in urls:
                 health = await fetch_once(client, u)
-
                 metrics = await fetch_pagespeed_metrics(client, u, api_key)
-        return {health, metrics}
+                print("hi")
+                print(f"Health check success: {health},\n"
+                      f"Metrics captured: {metrics}")
+            return {health, metrics}
 
 
 data = asyncio.run(loop(URLS, API_KEY))
-print(data)

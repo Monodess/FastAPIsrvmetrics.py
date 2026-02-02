@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="sqlalchemy(one)">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fastapi/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainproj/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainproj/ic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainproj/metrics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alchemy/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/alchemy/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_capturer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/data_capturer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_parser.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/data_parser.pyi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastapi/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainproj/data_capturer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/data_capturer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,29 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.1engine.executor": "Run",
-    "Python.config.executor": "Run",
-    "Python.data_capturer.executor": "Run",
-    "Python.engine.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.model_capturing.executor": "Run",
-    "Python.router.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.1engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_capturer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model_capturing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.router.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\alchemy" />
@@ -171,7 +170,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769980646004</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="sqlalchemy(one)">
+      <option name="closed" value="true" />
+      <created>1770041228756</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1770041228756</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
