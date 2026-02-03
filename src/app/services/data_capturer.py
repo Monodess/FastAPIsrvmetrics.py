@@ -1,7 +1,7 @@
 import asyncio, time
 import httpx
 from icecream import ic
-from mainproj.app.core.settings import settings
+from src.app.core.settings import settings
 
 #see what structure and how much labels it has
 #premake data model and migrate to db with py ef
@@ -26,7 +26,7 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
         response = await client.get(base_url, params=params, timeout=30.0)  # PageSpeed is slow
         ic(response)
         #get quota left
-        ic(dict(reaponce.headers)) #[dict]- every header 
+        ic(dict(response.headers)) #[dict]- every header
         if response.status_code == 200:
             data = response.json()  # Fixed: json is a method (), not a property
 
