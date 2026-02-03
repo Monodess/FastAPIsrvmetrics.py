@@ -22,8 +22,11 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
     }
 
     try:
+        #httpx obj has headers prop 
         response = await client.get(base_url, params=params, timeout=30.0)  # PageSpeed is slow
         ic(response)
+        #get quota left
+        ic(dict(reaponce.headers)) #[dict]- every header 
         if response.status_code == 200:
             data = response.json()  # Fixed: json is a method (), not a property
 
@@ -68,7 +71,10 @@ async def loop(urls, api_key):
                       f"Metrics captured: {metrics}")
             return (health, metrics)                #returning tuple
 
-async def getlimit(api_key):
+#no API for this
+#async def getlimit(client: httpx.AsyncClient, #api_key: str):
+    
+    
 
 if __name__ == '__main__':
     data =  asyncio.run(loop(URLS, settings.PAGESPEED_API_KEY))     #only once making main coroutine
