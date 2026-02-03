@@ -1,30 +1,24 @@
 import fastapi
-from starlette.requests import Request
+'''
+"Use case" vs "Normal function"
+some_route = fastapi.APIRouter()
+@some_route.api_route("/"...)
+    return SomeDbDataGetter()
 
-book_router = fastapi.APIRouter()
-@book_router.post("/postbook")
-def bookpost_endp():
-    print("hello w!")
+@some_route.api_route("/"..., input?)
+    ...
+    input validation
+    ...
+    errors handler
+    ...
+    return SomeDbDataGetter()
 
-#2 http m implement the same logic
-#m themselves are independent
-@book_router.get("/getbook")
-@book_router.post("/getandpostbook")
-def bookgetpost_endp():
-    print("what is this?")
+'''
+''' Use cases: 
+1) GET metrics from pgs 
+2) POST: url: str, time schedule(how long to monitor): int, save to db: bool 
+'''
+metrics = fastapi.APIRouter()
 
-user_router = fastapi.APIRouter()
-@user_router.api_route("/user", methods=["GET", "POST"])
-async def usergetpost(request: Request):
-    print("users endp")
-#import only main router in main
-main_router = fastapi.APIRouter()
-
-main_router.include_router(book_router)
-main_router.include_router(user_router)
-
-if __name__ == '__main__':
-     for r in main_router.routes:
-      print(r)
-
-
+@metrics.api_route("/metrics", methods=["POST", "GET"])
+def MetricsApi ():

@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="sqlalchemy(one)">
-      <change afterPath="$PROJECT_DIR$/mainproj/app/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mainproj/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/FastAPIsrvmetrics.py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FastAPIsrvmetrics.py.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter6/bringdatafromgit.py" beforeDir="false" afterPath="$PROJECT_DIR$/chapter6/bringdatafromgit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastapi/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastapi/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainproj/app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/app/core/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainproj/data_capturer.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/data_capturer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainproj/ic.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainproj/ic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +35,12 @@
     &quot;assignee&quot;: &quot;Monodess&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Monodess/FastAPIsrvmetrics.py.git",
-    "accountId": "59b4a5fb-dd9d-48da-bfbe-40591a9960e9"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Monodess/FastAPIsrvmetrics.py.git&quot;,
+    &quot;accountId&quot;: &quot;59b4a5fb-dd9d-48da-bfbe-40591a9960e9&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/pydantic_settings/main.py" root0="SKIP_INSPECTION" />
   </component>
@@ -52,45 +52,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.1engine.executor": "Run",
-    "Python.config.executor": "Run",
-    "Python.data_capturer.executor": "Run",
-    "Python.engine.executor": "Run",
-    "Python.ic.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.model_capturing.executor": "Run",
-    "Python.router.executor": "Run",
-    "Python.settings.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.1engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_capturer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model_capturing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.router.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\alchemy" />
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\mainproj\app\core" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\Config" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\Settings" />
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\mainproj" />
-      <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\fastapi" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.ic">
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FastAPIsrvmetrics.py" />
       <option name="ENV_FILES" value="" />

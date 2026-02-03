@@ -1,7 +1,7 @@
 import asyncio, time
 import httpx
 from icecream import ic
-from app.settings import settings
+from mainproj.app.core.settings import settings
 
 #see what structure and how much labels it has
 #premake data model and migrate to db with py ef
