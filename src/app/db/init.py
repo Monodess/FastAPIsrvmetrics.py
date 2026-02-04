@@ -29,7 +29,7 @@ async def setup_database():
 async def create_tables():
     async with db_engine.begin() as conn:
         try:
-            await conn.run_sync(metadata_obj.drop_all)
+            #await conn.run_sync(metadata_obj.drop_all())
             await conn.run_sync(metadata_obj.create_all)
         except Exception as e:
             print("failed ")
