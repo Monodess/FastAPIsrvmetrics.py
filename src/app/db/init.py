@@ -12,6 +12,7 @@ from src.app.scheme.models import metadata_obj
 
 #generator
 async def get_db():
+    ic(root_engine.url)
     async with AsyncSessionLocal() as session:
         yield session
 
@@ -27,6 +28,7 @@ async def setup_database():
 
 
 async def create_tables():
+    ic(db_engine.url)
     async with db_engine.begin() as conn:
         try:
             #await conn.run_sync(metadata_obj.drop_all())
@@ -39,6 +41,5 @@ async def create_tables():
 
 import asyncio
 if __name__ == '__main__':
-   ic(root_engine.url)
    asyncio.run (setup_database())
    asyncio.run (create_tables())
