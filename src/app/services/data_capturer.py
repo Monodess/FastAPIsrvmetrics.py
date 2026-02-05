@@ -2,7 +2,7 @@ import asyncio, time
 import httpx
 from icecream import ic
 from rich import print as rprint
-from src.app.core.settings import settings
+from src.app.core.appsettings import appsettings
 
 #see what structure and how much labels it has
 #premake data model and migrate to db with py ef
@@ -83,10 +83,12 @@ async def loop(urls, api_key):
     
 async def time_loop(attempts: int):
     for i in range (1, attempts):
-        yield await (loop(URLS, settings.PAGESPEED_API_KEY))
+        yield await (loop(URLS, appsettings.PAGESPEED_API_KEY))
 
+
+data =  asyncio.run(loop(URLS, appsettings.PAGESPEED_API_KEY))     #only once making main coroutine
 if __name__ == '__main__':
-    data =  asyncio.run(loop(URLS, settings.PAGESPEED_API_KEY))     #only once making main coroutine
+
     rprint(data)
     ic(data)
 
