@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="alembic init">
-      <change beforePath="$PROJECT_DIR$/.idea/FastAPIsrvmetrics.py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FastAPIsrvmetrics.py.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="alembic settled">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/db/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/scheme/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/scheme/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/data_capturer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/data_capturer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/data_parser.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/data_parser.pyi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,36 +50,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.1engine.executor": "Run",
-    "Python.alembic.executor": "Run",
-    "Python.config.executor": "Run",
-    "Python.data_capturer.executor": "Run",
-    "Python.engine.executor": "Run",
-    "Python.env.executor": "Run",
-    "Python.ic.executor": "Run",
-    "Python.init.executor": "Run",
-    "Python.init_engine.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.model_capturing.executor": "Run",
-    "Python.models.executor": "Run",
-    "Python.router.executor": "Run",
-    "Python.settings.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.1engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.alembic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.config.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_capturer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.env.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.init.executor&quot;: &quot;Run&quot;,
+    &quot;Python.init_engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model_capturing.executor&quot;: &quot;Run&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.router.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/margf/PycharmProjects/FastAPIsrvmetrics.py/alchemy&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py\alchemy" />
@@ -94,7 +93,7 @@
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\guide\log and dbg" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.ic">
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="FastAPIsrvmetrics.py" />
       <option name="ENV_FILES" value="" />
@@ -216,7 +215,23 @@
       <option name="project" value="LOCAL" />
       <updated>1770205003398</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="alembic setted">
+      <option name="closed" value="true" />
+      <created>1770221148997</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1770221148997</updated>
+    </task>
+    <task id="LOCAL-00009" summary="alembic settled">
+      <option name="closed" value="true" />
+      <created>1770221177137</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1770221177137</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +265,9 @@
     <MESSAGE value="+ pagespeed" />
     <MESSAGE value="sqlalchemy(one)" />
     <MESSAGE value="alembic init" />
-    <option name="LAST_COMMIT_MESSAGE" value="alembic init" />
+    <MESSAGE value="alembic setted" />
+    <MESSAGE value="alembic settled" />
+    <option name="LAST_COMMIT_MESSAGE" value="alembic settled" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

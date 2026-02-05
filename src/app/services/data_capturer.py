@@ -1,6 +1,7 @@
 import asyncio, time
 import httpx
 from icecream import ic
+from rich import print as rprint
 from src.app.core.settings import settings
 
 #see what structure and how much labels it has
@@ -18,7 +19,7 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
         "url": target_url,
         "key": api_key,
         "strategy": "mobile",
-        "category": "performance"  # Fixed typo 'perfomance'
+        "category": "performance"
     }
 
     try:
@@ -52,10 +53,16 @@ async def fetch_once(client: httpx.AsyncClient, url: str):
         r = await client.get(url, follow_redirects=True, timeout=10)
         # Fixed the math: (End - Start) * 1000
         latency_ms = (time.perf_counter() - t0) * 1000
-        return (int(time.time()), url, r.status_code, latency_ms, len(r.content), None)
+        return {
+            "time": int(time.time()),
+            "url": url,
+            "status_code": r.status_code,
+            "latency_ms": latency_ms,
+            "length": len(r.content),
+            }
     except Exception as e:
         latency_ms = (time.perf_counter() - t0) * 1000
-        return (int(time.time()), url, None, latency_ms, 0, str(e))
+        return {int(time.time()), url, None, latency_ms, 0, str(e)}
 
 
 
@@ -69,15 +76,20 @@ async def loop(urls, api_key):
                 metrics = await fetch_pagespeed_metrics(client, u, api_key)
                 print(f"Health check: {health},\n"
                       f"Metrics captured: {metrics}")
-            return (health, metrics)                #returning tuple
+            return health, metrics              #returning tuple
 
 #no API for this
 #async def getlimit(client: httpx.AsyncClient, #api_key: str):
     
-    
+async def time_loop(attempts: int):
+    for i in range (1, attempts):
+        yield await (loop(URLS, settings.PAGESPEED_API_KEY))
 
 if __name__ == '__main__':
     data =  asyncio.run(loop(URLS, settings.PAGESPEED_API_KEY))     #only once making main coroutine
+    rprint(data)
+    ic(data)
+
 
 
 
