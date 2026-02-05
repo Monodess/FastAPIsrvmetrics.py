@@ -4,8 +4,12 @@ import os
 from pathlib import Path
 
 #setting main root
-__BASE_PATH__ = Path(__file__).resolve().parent.parent
+__BASE_PATH__ = Path(__file__).resolve().parent.parent.parent
 __ENV_PATH__ = __BASE_PATH__/".env"
+
+if os.path.exists(__ENV_PATH__):
+    ic("file exists")
+    ic(os.path.isfile(__ENV_PATH__))
 
 class Configuration(BaseSettings):
     PAGESPEED_API_KEY: str

@@ -1,21 +1,11 @@
 import asyncio
+from sqlalchemy.ext.asyncio import async_session, async_sessionmaker
+from sqlalchemy import URL, text, Result
 
-from sqlalchemy.ext.asyncio import create_async_engine, async_session, async_sessionmaker
-from sqlalchemy import URL, create_engine, text, Result
+from data_capturer import data
 
-
-
-sql = f"CREATE DATABASE IF NOT EXISTS server_metrics;"
-
-engine = create_engine(
-    url=sql,
-    echo=True,
-    echo_pool=True,
-    # how much streams is kept alive (always)
-    pool_size=5,
-    max_overflow=10
-)
-
+def parse_health():
+    data[1]
 
 def set_connection():
     with engine.connect() as conn:
