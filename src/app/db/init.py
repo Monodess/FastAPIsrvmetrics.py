@@ -1,14 +1,11 @@
-from math import expm1
-
 from icecream import ic
 #engine dispose kills all pool
 #engine begin opens pool (5)
 #engine is still alive after dispose. not connected
 from sqlalchemy import text
-from sqlalchemy.testing.config import db_url
 
-from src.app.db.init_engine import AsyncSessionLocal, root_engine, db_engine
-from src.app.scheme.models import metadata_obj
+from src.app.db.engine import AsyncSessionLocal, root_engine, db_engine
+from src.app.db.dto import metadata_obj
 
 #generator
 async def get_db():
@@ -26,13 +23,13 @@ async def setup_database():
             print("database already exists or connection failed")
    await root_engine.dispose()
 
-
+#create tables with sqlalchemy Tables from "dto.py" (not ORM way)
 async def create_tables():
     ic(db_engine.url)
     async with db_engine.begin() as conn:
         try:
-            #await conn.run_sync(metadata_obj.drop_all())
-            await conn.run_sync(metadata_obj.create_all)
+            await conn.run_sync(metadata_obj.drop_all())
+            #await conn.run_sync(metadata_obj.create_all)
         except Exception as e:
             print("failed ")
     await db_engine.dispose()

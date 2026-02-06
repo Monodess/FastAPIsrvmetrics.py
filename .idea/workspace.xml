@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="alembic settled">
+    <list default="true" id="a477cc71-7695-4774-8e9b-24d185a9274b" name="Changes" comment="path problem fixed">
+      <change afterPath="$PROJECT_DIR$/src/app/db/dto.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/db/init_tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/db/session.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/scheme/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/alembic/versions/d1d0c0c3987a_init.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guide/fastapi/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/guide/fastapi/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/db/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/init.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/db/init_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/db/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/scheme/dto.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/scheme/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/scheme/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/data_capturer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/data_capturer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/data_parser.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/data_parser.pyi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/data_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/data_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/data_writer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/data_writer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +54,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.venv/Lib/site-packages/pydantic_settings/main.py" root0="SKIP_INSPECTION" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -55,13 +70,16 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.1engine.executor&quot;: &quot;Run&quot;,
     &quot;Python.alembic.executor&quot;: &quot;Run&quot;,
+    &quot;Python.appsettings.executor&quot;: &quot;Run&quot;,
     &quot;Python.config.executor&quot;: &quot;Run&quot;,
     &quot;Python.data_capturer.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_parser.executor&quot;: &quot;Run&quot;,
     &quot;Python.engine.executor&quot;: &quot;Run&quot;,
     &quot;Python.env.executor&quot;: &quot;Run&quot;,
     &quot;Python.ic.executor&quot;: &quot;Run&quot;,
     &quot;Python.init.executor&quot;: &quot;Run&quot;,
     &quot;Python.init_engine.executor&quot;: &quot;Run&quot;,
+    &quot;Python.init_tables.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;Python.model_capturing.executor&quot;: &quot;Run&quot;,
     &quot;Python.models.executor&quot;: &quot;Run&quot;,
@@ -86,11 +104,11 @@
       <recent name="C:\Users\margf\PycharmProjects\FastAPIsrvmetrics.py" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\src\app\db" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\src\app\scheme" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\app\db" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\app\scheme" />
       <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\mainproj\app" />
-      <recent name="C:\Users\Professional\PycharmProjects\FastAPIsrvmetrics.py\guide\log and dbg" />
     </key>
   </component>
   <component name="RunManager" selected="Python.ic">
@@ -231,7 +249,23 @@
       <option name="project" value="LOCAL" />
       <updated>1770221177137</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="alembic settled">
+      <option name="closed" value="true" />
+      <created>1770300585169</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1770300585169</updated>
+    </task>
+    <task id="LOCAL-00011" summary="path problem fixed">
+      <option name="closed" value="true" />
+      <created>1770318890499</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1770318890499</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,10 +301,22 @@
     <MESSAGE value="alembic init" />
     <MESSAGE value="alembic setted" />
     <MESSAGE value="alembic settled" />
-    <option name="LAST_COMMIT_MESSAGE" value="alembic settled" />
+    <MESSAGE value="path problem fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="path problem fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/app/db/init.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/guide/fastapi/main.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

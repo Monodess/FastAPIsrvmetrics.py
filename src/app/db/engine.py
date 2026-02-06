@@ -1,5 +1,6 @@
 import asyncio
 
+from icecream import ic
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 from src.app.db.config import settings
