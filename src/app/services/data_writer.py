@@ -6,7 +6,7 @@ from sqlalchemy import URL, text, Result
 from sqlalchemy.sql.coercions import expect
 
 from src.app.db.config import settings
-from src.app.db.init_engine import db_engine
+from src.app.db.engine import db_engine
 
 
 
