@@ -5,7 +5,7 @@ from icecream import ic
 from sqlalchemy import text
 
 from src.app.db.engine import AsyncSessionLocal, root_engine, db_engine
-from src.app.db.dto import metadata_obj
+from src.app.db.alchemy_tables import metadata_obj
 
 #generator
 async def get_db():
@@ -23,7 +23,7 @@ async def setup_database():
             print("database already exists or connection failed")
    await root_engine.dispose()
 
-#create tables with sqlalchemy Tables from "dto.py" (not ORM way)
+#create tables with sqlalchemy Tables from "alchemy_tables.py" (not ORM way)
 async def create_tables():
     ic(db_engine.url)
     async with db_engine.begin() as conn:
