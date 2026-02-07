@@ -7,7 +7,7 @@ from sqlalchemy.sql.coercions import expect
 
 from src.app.db.config import settings
 from src.app.db.engine import db_engine
-
+from src.app.db.init import get_db
 
 
 async def set_connection():
@@ -28,6 +28,10 @@ async def call_set_connection():
        return await set_connection()
     finally:
         await db_engine.dispose()
+
+async def write_data(data_p):
+     for session in get_db():
+         session.add(data_p)
 
 if __name__ == '__main__':
     res = asyncio.run(call_set_connection())

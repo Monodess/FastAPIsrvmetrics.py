@@ -9,6 +9,8 @@ from src.app.scheme.base import Base
 
 class PageSpeed(Base):
     __tablename__ = "pagespeed_metrics"
+    def __init__(self):
+        super().__init__()
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     captured_at: Mapped[datetime] = mapped_column(
