@@ -88,7 +88,6 @@ async def time_loop(attempts: int):
 
 data =  asyncio.run(loop(URLS, appsettings.PAGESPEED_API_KEY))     #only once making main coroutine
 if __name__ == '__main__':
-
     rprint(data)
     ic(data)
 

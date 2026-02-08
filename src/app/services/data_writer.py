@@ -7,7 +7,10 @@ from sqlalchemy.sql.coercions import expect
 
 from src.app.db.config import settings
 from src.app.db.engine import db_engine
+from src.app.db.session import get_db
+from src.app.models.models import PageSpeed
 
+"""Health check"""
 
 
 async def set_connection():
@@ -23,12 +26,30 @@ async def set_connection():
         except Exception as e:
             ic(f"Connection failed: {e}")
 
+
 async def call_set_connection():
     try:
-       return await set_connection()
+        return await set_connection()
     finally:
         await db_engine.dispose()
 
+
+async def write_data():
+    try:
+        async for session in get_db():
+            # add_all for pack-objects
+            # add for
+            session.add(data_p)
+            await session.commit()
+            break
+
+    except Exception as e:
+     ic(e)
+
+data_p = PageSpeed("some url", "some strategy")
+
+#from data_capturer import data
 if __name__ == '__main__':
     res = asyncio.run(call_set_connection())
     ic(res)
+    asyncio.run(write_data())
