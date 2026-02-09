@@ -10,10 +10,13 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from src.app.db.config import settings
+from src.app.db.config import Settings
 from src.app.scheme.base import Base
 
 
+__CURRENT_DIR__ = Path(__file__).resolve().parent.parent
+__ENV_PATH__ = __CURRENT_DIR__/ "src"/ "app"/ "db"/ ".env"
+settings = Settings()
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -84,9 +87,6 @@ async def run_async_migrations() -> None:
     await connectable.dispose()
 
 
-__CURRENT_DIR__ = Path(__file__).resolve().parent.parent
-__ENV_PATH__ = __CURRENT_DIR__ / "src/app   /db/.env"
-settings.model_config = SettingsConfigDict(env_file=__ENV_PATH__)
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""

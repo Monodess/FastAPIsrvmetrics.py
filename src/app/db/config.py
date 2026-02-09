@@ -32,9 +32,6 @@ class Settings(BaseSettings):
     #with pydantic (analogy for dotenv) load connection configuration
     model_config = SettingsConfigDict(env_file=__ENV_PATH__)
 
-settings = Settings()
 
 if __name__ == '__main__':
-    ic(settings)
-    ic(settings.database_url)
 
