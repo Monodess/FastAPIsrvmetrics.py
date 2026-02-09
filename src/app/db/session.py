@@ -1,17 +1,18 @@
 from icecream import ic
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
-from src.app.db.engine import root_engine
+from src.app.db.engine import db_engine
 
 #fabric
 AsyncSessionLocal = async_sessionmaker(
-    bind=root_engine,
+    bind=db_engine,
     class_=AsyncSession,
     expire_on_commit=False
+
 )
 
 #generator
 async def get_db():
-    ic(root_engine.url)
+    ic(db_engine.url)
     async with AsyncSessionLocal() as session:
         yield session

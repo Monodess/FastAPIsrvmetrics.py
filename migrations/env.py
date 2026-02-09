@@ -10,10 +10,11 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-
-from src.app.db.config import settings
+from src.app.db.config import Settings
 from src.app.scheme.base import Base
 
+
+settings = Settings()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -28,7 +29,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from src.app.scheme.models import PageSpeed, Healthcheck
+from src.app.models.models import PageSpeed, Healthcheck
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -86,9 +87,7 @@ async def run_async_migrations() -> None:
     await connectable.dispose()
 
 
-__CURRENT_DIR__ = Path(__file__).resolve().parent.parent
-__ENV_PATH__ = __CURRENT_DIR__ / "src/app   /db/.env"
-settings.model_config = SettingsConfigDict(env_file=__ENV_PATH__)
+
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""

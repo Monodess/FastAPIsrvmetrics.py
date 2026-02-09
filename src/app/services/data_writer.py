@@ -1,15 +1,17 @@
 import asyncio
 
 from icecream import ic
+from pydantic import validate_call
 from sqlalchemy.ext.asyncio import async_session, async_sessionmaker
 from sqlalchemy import URL, text, Result
 from sqlalchemy.sql.coercions import expect
 
-from src.app.db.config import settings
+from src.app.db.config import Settings
 from src.app.db.engine import db_engine
 from src.app.db.session import get_db
-from src.app.models.models import PageSpeed
+from src.app.models.models import PageSpeed, Healthcheck
 
+settings = Settings()
 """Health check"""
 
 
@@ -33,20 +35,29 @@ async def call_set_connection():
     finally:
         await db_engine.dispose()
 
-
-async def write_data():
+@validate_call
+async def write_data(data: Healthcheck | PageSpeed):
     try:
         async for session in get_db():
             # add_all for pack-objects
-            # add for
-            session.add(data_p)
+            # add for single entry
+            session.add(data)
             await session.commit()
             break
 
     except Exception as e:
      ic(e)
 
-data_p = PageSpeed("some url", "some strategy")
+@validate_call
+async def write_all_data(data: Healthcheck | PageSpeed):
+    try:
+        async for session in get_db():
+            # add_all for pack-objects
+            session.add_all(data)
+            await session.commit()
+            break
+    except Exception as e:
+     ic(e)
 
 #from data_capturer import data
 if __name__ == '__main__':

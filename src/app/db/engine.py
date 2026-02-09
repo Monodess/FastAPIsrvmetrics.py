@@ -1,5 +1,9 @@
+from icecream import ic
 from sqlalchemy.ext.asyncio import create_async_engine
-from src.app.db.config import settings
+
+from src.app.db.config import Settings
+
+settings = Settings()
 
 root_url = settings.database_url.rsplit('/', 1)[0] + "/mysql"
 db_url = settings.database_url

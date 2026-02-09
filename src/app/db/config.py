@@ -10,11 +10,8 @@ from icecream import ic
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-__BASE_PATH__ = Path(os.path.curdir).resolve().parent.parent.parent
-__ENV_PATH__ = __BASE_PATH__/ "src"/ "app"/ "db"/ ".env"
-
-
-
+__CURRENT_PATH__ = Path(__file__).resolve().parent
+__ENV_PATH__ = __CURRENT_PATH__ / ".env"
 #stores data connection
 class Settings(BaseSettings):
     #implicit type
@@ -32,9 +29,9 @@ class Settings(BaseSettings):
     #with pydantic (analogy for dotenv) load connection configuration
     model_config = SettingsConfigDict(env_file=__ENV_PATH__)
 
-settings = Settings()
 
-if __name__ == '__main__':
-    ic(settings)
-    ic(settings.database_url)
+
+
+
+
 
