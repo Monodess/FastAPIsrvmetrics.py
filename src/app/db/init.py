@@ -4,14 +4,8 @@ from icecream import ic
 #engine is still alive after dispose. not connected
 from sqlalchemy import text
 
-from src.app.db.engine import AsyncSessionLocal, root_engine, db_engine
-from src.app.db.alchemy_tables import metadata_obj
-
-#generator
-async def get_db():
-    ic(root_engine.url)
-    async with AsyncSessionLocal() as session:
-        yield session
+from src.app.db.engine import root_engine, db_engine
+from src.app.scheme.alchemy_tables import metadata_obj
 
 #db health check
 async def setup_database():

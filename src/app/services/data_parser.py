@@ -6,12 +6,12 @@ with engines from 'init_engine'
 """
 
 # is commented so that it doesnt capture metrics for now
-# from data_capturer import data
+from data_capturer import data
 #
 #
 #
-# def parse_health():
-#      data[1]
+def parse_health():
+      return data[0]
 
 
 

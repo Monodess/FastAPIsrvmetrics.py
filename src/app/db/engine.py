@@ -1,8 +1,4 @@
-import asyncio
-
-from icecream import ic
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
+from sqlalchemy.ext.asyncio import create_async_engine
 from src.app.db.config import settings
 
 root_url = settings.database_url.rsplit('/', 1)[0] + "/mysql"
@@ -24,10 +20,5 @@ db_engine = create_async_engine(
     max_overflow=10
 )
 #transaction handler
-AsyncSessionLocal = async_sessionmaker(
-    bind=root_engine,
-    class_=AsyncSession,
-    expire_on_commit=False
-)
 
 
