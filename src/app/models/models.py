@@ -4,11 +4,13 @@ from typing import Optional
 from sqlalchemy import String, DateTime, func, Float, Text
 from sqlalchemy.orm import Mapped, mapped_column
 
+from src.app.scheme.alchemy_tables import healthcheck_table, pagespeed_table
 from src.app.scheme.base import Base
 
 
 class PageSpeed(Base):
     __tablename__ = "pagespeed_metrics"
+    # __table__ = pagespeed_table
     def __init__(self, _url: str, _strategy: str):
         super().__init__()
         self.url = _url
@@ -35,6 +37,7 @@ class PageSpeed(Base):
 
 
 class Healthcheck(Base):
+    # __table__ = healthcheck_table
     __tablename__ = "healthcheck_metrics"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
@@ -49,3 +52,6 @@ class Healthcheck(Base):
 
     is_up: Mapped[int] = mapped_column(server_default="0")
     error: Mapped[Optional[str]] = mapped_column(String(512))
+
+# class Ruquests(Base):
+#     url: Mapped[int] = mapped_column(String(1024))

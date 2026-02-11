@@ -2,6 +2,8 @@ import asyncio, time
 import httpx
 from icecream import ic
 from rich import print as rprint
+from sqlalchemy.sql.coercions import expect
+
 from src.app.core.appsettings import appsettings
 
 #see what structure and how much labels it has
@@ -34,13 +36,13 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
             lighthouse = data.get("lighthouseResult", {})
             audits = lighthouse.get("audits", {})
             json1 = response.content
-            ic(json1)
+
             return {
-                "overall_score": lighthouse.get("categories", {}).get("performance", {}).get("score"),
-                "lcp": audits.get("largest-contentful-paint", {}).get("numericValue"),
+                "perf_score": lighthouse.get("categories", {}).get("performance", {}).get("score"),
+                "lcp_ms": audits.get("largest-contentful-paint", {}).get("numericValue"),
                 "cls": audits.get("cumulative-layout-shift", {}).get("numericValue"),
-                "fcp": audits.get("first-contentful-paint", {}).get("numericValue"),
-                "speed_index": audits.get("speed-index", {}).get("numericValue")
+                "fcp_ms": audits.get("first-contentful-paint", {}).get("numericValue"),
+                "speed_index_ms": audits.get("speed-index", {}).get("numericValue")
             }
     except Exception as e:
         print(f"PageSpeed Error for {target_url}: {e}")
@@ -53,18 +55,28 @@ async def fetch_once(client: httpx.AsyncClient, url: str):
         r = await client.get(url, follow_redirects=True, timeout=10)
         # Fixed the math: (End - Start) * 1000
         latency_ms = (time.perf_counter() - t0) * 1000
+
         return {
-            "time": int(time.time()),
             "url": url,
-            "status_code": r.status_code,
+            "response_code": r.status_code,
             "latency_ms": latency_ms,
-            "length": len(r.content),
+            "content_length": len(r.content),
+            "is_up": 1 if 200 <= r.status_code <= 299 else 0
             }
     except Exception as e:
         latency_ms = (time.perf_counter() - t0) * 1000
-        return {int(time.time()), url, None, latency_ms, 0, str(e)}
+        return {
+            "url": url,
+            "response_code": None,
+            "latency_ms": latency_ms,
+            "content_length": 0,  # Данные не получены
+            "is_up": 0,  # Сайт считается упавшим
+            "error": str(e)  # Сюда попадет причина (Timeout, Connection Error и т.д.)
+        }
 
+async def get_client ():
 
+async def process_url(client, url, api_key):
 
 async def loop(urls, api_key):
     limits = httpx.Limits(max_connections=5)
@@ -73,10 +85,11 @@ async def loop(urls, api_key):
         while True:
             for u in urls:
                 health = await fetch_once(client, u)
+
                 metrics = await fetch_pagespeed_metrics(client, u, api_key)
                 print(f"Health check: {health},\n"
                       f"Metrics captured: {metrics}")
-            return health, metrics              #returning tuple
+            return health, metrics              #returning tuple by default
 
 #no API for this
 #async def getlimit(client: httpx.AsyncClient, #api_key: str):
@@ -86,10 +99,7 @@ async def time_loop(attempts: int):
         yield await (loop(URLS, appsettings.PAGESPEED_API_KEY))
 
 
-data =  asyncio.run(loop(URLS, appsettings.PAGESPEED_API_KEY))     #only once making main coroutine
-if __name__ == '__main__':
-    rprint(data)
-    ic(data)
+
 
 
 
