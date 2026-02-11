@@ -4,17 +4,28 @@ Reshapes input metrics for database storage
 This service receives [data] from 'data_capturer' and reshape it for DB model
 with engines from 'init_engine'
 """
+import os
 
-# is commented so that it doesnt capture metrics for now
+from dotenv import load_dotenv
+from icecream import ic
+
+"""TODO: ORM is already a way to operate data like objects with db integration
+   That why parsing implies using those models (with no additional dto) 
+"""
+from src.app.models.models import Healthcheck, PageSpeed
 from data_capturer import data
-#
-#
-#
-def parse_health():
-    data.
-      return data[0]
 
 
 
+def parse_health(data: tuple |dict):
+    return Healthcheck(**data) #unpack dict (dict's keys should be = class fields names
+
+def parse_pagespeed(data: tuple | dict):
+    return PageSpeed(**data)
+
+
+health = parse_health(data[1])
+ic(health)
+pagespeed = parse_health(data[2])
 
 

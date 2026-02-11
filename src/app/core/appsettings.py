@@ -15,6 +15,7 @@ __ENV_PATH__ = __BASE_PATH__/".env"
 
 class Configuration(BaseSettings):
     PAGESPEED_API_KEY: str
+    DEBUG: bool = False
 
     model_config = SettingsConfigDict(
         env_file=__ENV_PATH__,      #pydantic is case-insensitive
