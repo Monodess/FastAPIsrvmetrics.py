@@ -14,9 +14,8 @@ from src.app.db.config import Settings
 from src.app.scheme.base import Base
 
 
-__CURRENT_DIR__ = Path(__file__).resolve().parent.parent
-__ENV_PATH__ = __CURRENT_DIR__/ "src"/ "app"/ "db"/ ".env"
 settings = Settings()
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
@@ -30,6 +29,7 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+from src.app.models.models import PageSpeed, Healthcheck
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -85,6 +85,7 @@ async def run_async_migrations() -> None:
         await connection.run_sync(do_run_migrations)
 
     await connectable.dispose()
+
 
 
 
