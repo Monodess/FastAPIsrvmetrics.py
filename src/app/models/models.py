@@ -8,6 +8,24 @@ from src.app.scheme.alchemy_tables import healthcheck_table, pagespeed_table
 from src.app.scheme.base import Base
 
 
+class Healthcheck(Base):
+    __tablename__ = "healthcheck_metrics"
+    # __table__ = healthcheck_table
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
+    captured_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    url: Mapped[str] = mapped_column(String(1024))
+
+    response_code: Mapped[Optional[int]] = mapped_column()
+    latency_ms: Mapped[Optional[float]] = mapped_column(Float)
+    content_length: Mapped[Optional[int]] = mapped_column()
+
+    is_up: Mapped[int] = mapped_column(server_default="0")
+    error: Mapped[Optional[str]] = mapped_column(String(512))
+
+
 class PageSpeed(Base):
     __tablename__ = "pagespeed_metrics"
     # __table__ = pagespeed_table
@@ -34,24 +52,6 @@ class PageSpeed(Base):
     response_code: Mapped[Optional[int]] = mapped_column()
     error: Mapped[Optional[str]] = mapped_column(String(512))
     raw_json: Mapped[Optional[str]] = mapped_column(Text)
-
-
-class Healthcheck(Base):
-    # __table__ = healthcheck_table
-    __tablename__ = "healthcheck_metrics"
-
-    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    captured_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now()
-    )
-    url: Mapped[str] = mapped_column(String(1024))
-
-    response_code: Mapped[Optional[int]] = mapped_column()
-    latency_ms: Mapped[Optional[float]] = mapped_column(Float)
-    content_length: Mapped[Optional[int]] = mapped_column()
-
-    is_up: Mapped[int] = mapped_column(server_default="0")
-    error: Mapped[Optional[str]] = mapped_column(String(512))
 
 # class Ruquests(Base):
 #     url: Mapped[int] = mapped_column(String(1024))

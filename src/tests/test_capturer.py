@@ -14,11 +14,11 @@ from src.app.services.data_capturer import process_url
 def get_client(single_connection: bool):
     if single_connection:
         limits = httpx.Limits(max_connections=1)
-        client = httpx.AsyncClient(limits=limits, headers={"Test-Agent": "MetricsCollector/1.0"})
+        client = httpx.AsyncClient(limits=limits, headers={"User-Agent": appsettings.HEADERS})
         return client
     else:
         limits = httpx.Limits(max_connections=1000)
-        client = httpx.AsyncClient(limits=limits, headers={"Test-Agent": "MetricsCollector/1.0"})
+        client = httpx.AsyncClient(limits=limits, headers={"User-Agent": appsettings.HEADERS})
         return client
 
 @pytest.mark.asyncio
