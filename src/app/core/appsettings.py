@@ -23,6 +23,7 @@ class Configuration(BaseSettings):
         extra='ignore',             #other fields in .env ignored
     )
 
+#keep this as singleton: either case can lead to bugs
 appsettings= Configuration()
 
 
