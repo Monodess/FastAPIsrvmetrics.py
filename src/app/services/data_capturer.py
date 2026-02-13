@@ -88,7 +88,7 @@ async def process_url(client, url, api_key):
 async def loop(urls, api_key):
     limits = httpx.Limits(max_connections=5)
     # The client lives here for the entire duration of the program
-    async with httpx.AsyncClient(limits=limits, headers={"User-Agent": "MetricsCollector/1.0"}) as client:
+    async with httpx.AsyncClient(limits=limits, headers={"User-Agent": appsettings.HEADERS}) as client:
             for u in urls:
                 health = await fetch_once(client, u)
                 metrics = await fetch_pagespeed_metrics(client, u, api_key)

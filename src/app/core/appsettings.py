@@ -16,7 +16,7 @@ __ENV_PATH__ = __BASE_PATH__/".env"
 class Configuration(BaseSettings):
     PAGESPEED_API_KEY: str
     DEBUG: bool = False
-
+    HEADERS: str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
     model_config = SettingsConfigDict(
         env_file=__ENV_PATH__,      #pydantic is case-insensitive
         env_file_encoding='utf-8',

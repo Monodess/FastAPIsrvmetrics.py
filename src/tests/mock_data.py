@@ -22,3 +22,4 @@ async def get_mock_capture_data():
         "speed_index_ms": 1000
     }
     return health_mock, pagespeed_mock
+
