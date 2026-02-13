@@ -16,16 +16,16 @@ from src.app.models.models import Healthcheck, PageSpeed
 from data_capturer import loop
 
 
-def parse_health(data: tuple |dict):
+def parse_health(data: dict):
     return Healthcheck(**data) #unpack dict (dict's keys should be = class fields names
 
-def parse_pagespeed(data: tuple | dict):
+def parse_pagespeed(data: dict):
     return PageSpeed(**data)
 
-ic(data[0])
-ic(data[1])
-health = parse_health(data[0])
-ic(health)
+def parse_both(data: tuple):
+    return tuple( {parse_health(data[0]), parse_pagespeed(data[1])} ) #this should return a tuple of 2 objects 
+
+
 # pagespeed = parse_health(data[1])
 
 

@@ -1,3 +1,7 @@
+"""
+    This module doesn't have processing logic
+It exists only to capture data via API
+"""
 import asyncio, time
 import httpx
 from icecream import ic
@@ -74,18 +78,19 @@ async def fetch_once(client: httpx.AsyncClient, url: str):
             "error": str(e)  # Сюда попадет причина (Timeout, Connection Error и т.д.)
         }
 
-async def get_client ():
-
 async def process_url(client, url, api_key):
+    health = await fetch_once(client, url)
+    metrics = await fetch_pagespeed_metrics(client, url, api_key)
+    print(f"Health check: {health},\n"
+          f"Metrics captured: {metrics}")
+    return health, metrics
 
 async def loop(urls, api_key):
     limits = httpx.Limits(max_connections=5)
     # The client lives here for the entire duration of the program
     async with httpx.AsyncClient(limits=limits, headers={"User-Agent": "MetricsCollector/1.0"}) as client:
-        while True:
             for u in urls:
                 health = await fetch_once(client, u)
-
                 metrics = await fetch_pagespeed_metrics(client, u, api_key)
                 print(f"Health check: {health},\n"
                       f"Metrics captured: {metrics}")
@@ -93,12 +98,10 @@ async def loop(urls, api_key):
 
 #no API for this
 #async def getlimit(client: httpx.AsyncClient, #api_key: str):
-    
+#generator
 async def time_loop(attempts: int):
     for i in range (1, attempts):
         yield await (loop(URLS, appsettings.PAGESPEED_API_KEY))
-
-
 
 
 
