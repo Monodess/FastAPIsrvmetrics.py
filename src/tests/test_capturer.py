@@ -31,7 +31,7 @@ def get_client(single_connection: bool):
         return client
     else:
         limits = httpx.Limits(max_connections=1000)
-        client = httpx.AsyncClient(limits=limits,
+        client = httpx.AsyncClie0nt(limits=limits,
                                    headers={
                                        "User-Agent": appsettings.HEADERS,  # Your Chrome 120 string
                                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -46,18 +46,12 @@ def get_client(single_connection: bool):
         return client
 
 def get_url():
-    return "https://stackoverflow.com/questions"
+    return "https://google.com"
 
 @pytest.mark.asyncio
 async def test_api_capture_shape():
-    data = await process_url(get_client(True), "https://stackoverflow.com/questions", appsettings.PAGESPEED_API_KEY)
+    data = await process_url(get_client(True), get_url(), appsettings.PAGESPEED_API_KEY)
     ic(data)
     # assert "url" in data[0]
     # assert "perf_score" in data[0]
 
-@pytest.mark.asyncio
-async def test_debug_headers() :
-    client = get_client(True)
-    response = await client.get(get_url())
-    ic(response.request.headers)
-    ic(response.text)
