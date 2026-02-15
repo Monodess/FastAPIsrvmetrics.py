@@ -18,7 +18,7 @@ def get_client(single_connection: bool):
         limits = httpx.Limits(max_connections=1)
     else:
         limits = httpx.Limits(max_connections=1000)
-        client = httpx.AsyncClient(limits=limits,
+        client = httpx.AsyncClie0nt(limits=limits,
                                    headers={
                                        "User-Agent": appsettings.HEADERS,  # Your Chrome 120 string
                                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
