@@ -7,8 +7,8 @@ import pytest
 
 
 #bassicaly we need to feed "fake data" to the func
-@pytest.mark.asyncio
-async def get_mock_capture_data():
+@pytest.fixture()
+def mock_capture_data():
     health_mock = {"url": "https://api.example.com/v1/metrics",
                    "response_code": 200,
                    "latency_ms": 142.5,
