@@ -25,15 +25,11 @@ class Healthcheck(Base):
     is_up: Mapped[int] = mapped_column(server_default="0")
     error: Mapped[Optional[str]] = mapped_column(String(512))
 
-
 class PageSpeed(Base):
     __tablename__ = "pagespeed_metrics"
     # __table__ = pagespeed_table
-    def __init__(self, _url: str, _strategy: str):
-        super().__init__()
-        self.url = _url
-        self.strategy = _strategy
-
+    def __repr__(self) :
+        vars(self)
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     captured_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()

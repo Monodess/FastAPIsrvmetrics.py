@@ -13,7 +13,6 @@ from icecream import ic
    That why parsing implies using those models (with no additional dto) 
 """
 from src.app.models.models import Healthcheck, PageSpeed
-from data_capturer import loop
 
 
 def parse_health(data: dict):
@@ -26,6 +25,5 @@ def parse_both(data: tuple):
     return tuple( {parse_health(data[0]), parse_pagespeed(data[1])} ) #this should return a tuple of 2 objects 
 
 
-# pagespeed = parse_health(data[1])
 
 
