@@ -42,6 +42,8 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
             json1 = response.content
 
             return {
+ #unpack params here
+                **params)
                 "perf_score": lighthouse.get("categories", {}).get("performance", {}).get("score"),
                 "lcp_ms": audits.get("largest-contentful-paint", {}).get("numericValue"),
                 "cls": audits.get("cumulative-layout-shift", {}).get("numericValue"),
