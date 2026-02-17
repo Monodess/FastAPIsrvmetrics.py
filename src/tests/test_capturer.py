@@ -7,7 +7,7 @@ from unittest.mock import AsyncMock
 from icecream import ic
 
 from src.app.core.appsettings import appsettings
-from src.app.services.data_capturer import process_url
+from src.app.services.data_capturer import process_url, fetch_once, fetch_pagespeed_metrics
 
 
 # create mock data for data_capturer, so that testing woulnd need to use real API every time
@@ -18,7 +18,7 @@ def get_client(single_connection: bool):
         limits = httpx.Limits(max_connections=1)
     else:
         limits = httpx.Limits(max_connections=1000)
-        client = httpx.AsyncClie0nt(limits=limits,
+    client = httpx.AsyncClient(limits=limits,
                                    headers={
                                        "User-Agent": appsettings.HEADERS,  # Your Chrome 120 string
                                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
@@ -30,7 +30,7 @@ def get_client(single_connection: bool):
                                    },
                                    follow_redirects=True,
                                    http2=True)
-        return client
+    return client
 
 def get_url():
     return "https://google.com"
@@ -42,3 +42,15 @@ async def test_api_capture_shape():
     assert "url" in data[1]
     assert "perf_score" in data[1]
 
+
+@pytest.mark.asyncio
+async def test_health_capturing():
+    data = await fetch_once(get_client(True), get_url())
+    ic(data)
+    assert "url" in data
+
+@pytest.mark.asyncio
+async def test_pagespeed_capturing():
+    data = await fetch_pagespeed_metrics(get_client(True), get_url(), appsettings.PAGESPEED_API_KEY)
+    ic(data)
+    assert "url" in data
