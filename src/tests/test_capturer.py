@@ -46,7 +46,6 @@ async def test_api_capture_shape():
 @pytest.mark.asyncio
 async def test_health_capturing():
     data = await fetch_once(get_client(True), get_url())
-    ic(data)
     assert "url" in data
 
 @pytest.mark.asyncio

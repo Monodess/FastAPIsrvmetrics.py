@@ -20,25 +20,34 @@ class AuditMixin:
     response_code: Mapped[Optional[int]] = mapped_column()
 
     error: Mapped[Optional[str]] = mapped_column(String(512))
-    raw_json: Mapped[Optional[str]] = mapped_column(Text)
 
 """
-Object for both Health and PgSpeed created in [data_parser] 
+Objects for both Health and PgSpeed created in [data_parser] 
 """
 class Healthcheck(Base, AuditMixin):
     __tablename__ = "healthcheck_metrics"
-    # __table__ = healthcheck_table
+    def __repr__(self):
+        fields = ", ".join(
+            f"{k}={v!r}"
+            for k, v in vars(self).items()
+            if not k.startswith("_")
+        )
 
+        return f"{self.__class__.__name__}({fields})"
     latency_ms: Mapped[Optional[float]] = mapped_column(Float)
     content_length: Mapped[Optional[int]] = mapped_column()
     is_up: Mapped[int] = mapped_column(server_default="0")
 
 class PageSpeed(Base, AuditMixin):
     __tablename__ = "pagespeed_metrics"
-    # __table__ = pagespeed_table
-    def __repr__(self) :
-        vars(self)
+    def __repr__(self):
+        fields = ", ".join(
+            f"{k}={v!r}"
+            for k, v in vars(self).items()
+            if not k.startswith("_")
+        )
 
+        return f"{self.__class__.__name__}({fields})"
     strategy: Mapped[str] = mapped_column(String(16))
 
     perf_score: Mapped[Optional[float]] = mapped_column(Float)
@@ -46,6 +55,4 @@ class PageSpeed(Base, AuditMixin):
     cls: Mapped[Optional[float]] = mapped_column(Float)
     fcp_ms: Mapped[Optional[float]] = mapped_column(Float)
     speed_index_ms: Mapped[Optional[float]] = mapped_column(Float)
-
-
 

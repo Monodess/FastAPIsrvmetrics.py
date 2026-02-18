@@ -5,9 +5,8 @@ from src.tests.mock_data import mock_capture_data
 
 
 def test_parsing(mock_capture_data):
-    data = mock_capture_data
-    health_data = parse_health(data[0])
-    pagespeed_data = parse_pagespeed(data[1])
-    assert health_data.url == mock_capture_data[0]["url"]
+    health_data = parse_health(mock_capture_data[0])
+    pagespeed_data = parse_pagespeed(mock_capture_data[1])
 
-   # assert pagespeed_data == mock_capture_data[1]["url"]
+    assert health_data.url == mock_capture_data[0]["url"]
+    assert pagespeed_data.url == mock_capture_data[1]["url"]

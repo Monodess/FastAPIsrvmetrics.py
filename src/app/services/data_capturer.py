@@ -2,24 +2,16 @@
     This module doesn't have processing logic
 It exists only to capture data via API
 """
-import asyncio, time
 import json
+import time
 
 import httpx
-from icecream import ic
-from rich import print as rprint
-from sqlalchemy.sql.coercions import expect
 
 from src.app.core.appsettings import appsettings
 
-#see what structure and how much labels it has
-#premake data model and migrate to db with py ef
-#check if i could turn captured data in csv with pands
-#taught the model and prepare datasets for it with labels(tight answers) and both test and validation
-
 URLS = ["https://docs.python.org/uk/3.13/library/__main__.html"]
 
-#health check function
+"""Health check function"""
 async def fetch_once(client: httpx.AsyncClient, url: str):
     t0 = time.perf_counter()
     status_code = None
@@ -38,7 +30,6 @@ async def fetch_once(client: httpx.AsyncClient, url: str):
             "content_length": len(r.content),
             "is_up": 1,
             "error": None,
-            "raw_json": r.text
         }
     except Exception as e:
         latency_ms = (time.perf_counter() - t0) * 1000
@@ -63,10 +54,9 @@ async def fetch_once(client: httpx.AsyncClient, url: str):
             "content_length": content_length,
             "is_up": is_up,
             "error": str(e),
-            "raw_json": raw_json_string
         }
 
-#metrics capturing functin
+"""Metrics capturing function"""
 async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, api_key: str):
     # CRITICAL: Use the API endpoint, not the web URL
     base_url = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
@@ -85,6 +75,7 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
         data = response.json()  # Fixed: json is a method (), not a property
 
         lighthouse = data.get("lighthouseResult", {})
+
         audits = lighthouse.get("audits", {})
 
         raw_json_string = json.dumps(lighthouse)
@@ -98,7 +89,6 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
             "fcp_ms": audits.get("first-contentful-paint", {}).get("numericValue"),
             "speed_index_ms": audits.get("speed-index", {}).get("numericValue"),
             "error": None,
-            "raw_json": raw_json_string
         }
     except Exception as e:
         return {
@@ -111,11 +101,9 @@ async def fetch_pagespeed_metrics(client: httpx.AsyncClient, target_url: str, ap
             "fcp_ms": None,
             "speed_index_ms": None,
             "error": str(e),
-            "raw_json": raw_json_string
         }
 
-
-
+"""Capture full data for one url"""
 async def process_url(client, url, api_key):
     health = await fetch_once(client, url)
     metrics = await fetch_pagespeed_metrics(client, url, api_key)
