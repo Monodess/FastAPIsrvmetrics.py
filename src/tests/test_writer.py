@@ -3,6 +3,7 @@ import re
 import pytest
 
 from src.app.services.data_writer import *
+
 @pytest.mark.asyncio
 async def test_set_connection():
     try:
@@ -14,5 +15,6 @@ async def test_set_connection():
     assert pattern.match(v)
 
 @pytest.mark.asyncio
-async def test_write_data(mo):
-    write_data()
+async def test_write_data(mock_orm_health_obj):
+    await write_data(mock_orm_health_obj)
+    assert

@@ -40,7 +40,7 @@ async def write_data(data: Healthcheck | PageSpeed):
      ic(e)
 
 """Write all fields"""
-async def write_all_data(data: Healthcheck | PageSpeed):
+async def write_all_data(data: tuple):
     try:
         async for session in get_db():
             # add_all for pack-objects
