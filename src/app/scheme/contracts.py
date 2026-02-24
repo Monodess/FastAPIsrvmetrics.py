@@ -1,7 +1,11 @@
 from enum import StrEnum, Enum
 
+from src.app.models.models import Healthcheck, PageSpeed
 
-class Tables(StrEnum):
-    HEATHCHECK = "healthcheck_metrics"
-    PAGESPEED = "pagespeed_metrics"
+
+class Tables(Enum):
+    HEATHCHECK = Healthcheck
+    PAGESPEED = PageSpeed
+
+
 

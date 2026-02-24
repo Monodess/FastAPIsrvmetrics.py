@@ -1,6 +1,8 @@
-from icecream import ic
+import logging as log
+
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
+from src.app.appsetting.logger import Logger
 from src.app.db.engine import db_engine
 
 #fabric
@@ -13,6 +15,12 @@ AsyncSessionLocal = async_sessionmaker(
 
 #generator
 async def get_db():
-    ic(db_engine.url)
-    async with AsyncSessionLocal() as session:
+    Logger.info(db_engine.url)
+    session = AsyncSessionLocal()
+    try:
         yield session
+    except Exception as e:
+        await session.rollback()
+    finally:
+        await session.close()
+

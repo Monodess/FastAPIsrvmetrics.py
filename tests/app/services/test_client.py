@@ -1,7 +1,7 @@
 import pytest
 from icecream import ic
 
-from src.tests.test_capturer import get_client, get_url
+from tests.app.services.test_capturer import get_client, get_url
 
 
 @pytest.mark.asyncio

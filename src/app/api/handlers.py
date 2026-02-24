@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 
 from src.app.api.dto import Url
 from src.app.db.session import get_db
-from src.app.core.appsettings import appsettings
+from src.app.appsetting.appsettings import appsettings
 from src.app.services.data_capturer import loop, URLS
 from loguru import logger
 app = FastAPI()

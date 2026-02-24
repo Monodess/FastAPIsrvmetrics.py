@@ -7,7 +7,7 @@ import time
 
 import httpx
 
-from src.app.core.appsettings import appsettings
+from src.app.appsetting.appsettings import appsettings
 
 URLS = ["https://docs.python.org/uk/3.13/library/__main__.html"]
 

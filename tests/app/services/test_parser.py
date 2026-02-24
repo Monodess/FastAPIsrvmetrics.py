@@ -1,7 +1,5 @@
-import pytest
-from icecream import ic
 from src.app.services.data_parser import parse_health, parse_pagespeed
-from src.tests.mock_data import mock_capture_data
+from tests.data_mocks.mock_data import mock_capture_data
 
 
 def test_parsing(mock_capture_data):
