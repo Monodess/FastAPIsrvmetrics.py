@@ -1,9 +1,12 @@
 import pytest
+from icecream import ic
 
+from src.app.models.models import Healthcheck
 from src.app.scheme.contracts import Tables
-from src.app.services.data_reader import read_data
+from src.app.services.data_reader import find_by
 
 @pytest.mark.asyncio
 async def test_read_data():
-    await read_data(Tables.HEATHCHECK, id=1)
-    await read_data(Tables.PAGESPEED, id=1)
+    data =  await find_by(Healthcheck, id=1)
+    await find_by(Tables.PAGESPEED, id=1)
+    ic (data)
