@@ -7,9 +7,9 @@ import time
 
 import httpx
 
-from src.app.appsetting.appsettings import appsettings
+from src.appsetting.appsettings import appsettings
 
-URLS = ["https://docs.python.org/uk/3.13/library/__main__.html"]
+
 
 """Health check function"""
 async def fetch_once(client: httpx.AsyncClient, url: str):
@@ -125,9 +125,6 @@ async def loop(urls, api_key):
 #no API for this
 #async def getlimit(client: httpx.AsyncClient, #api_key: str):
 #generator
-async def time_loop(attempts: int):
-    for i in range (1, attempts):
-        yield await (loop(URLS, appsettings.PAGESPEED_API_KEY))
 
 
 

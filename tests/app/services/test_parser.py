@@ -1,4 +1,4 @@
-from src.app.services.data_parser import parse_health, parse_pagespeed
+from src.app.services.parser import parse_health, parse_pagespeed
 from tests.data_mocks.mock_data import mock_capture_data
 
 

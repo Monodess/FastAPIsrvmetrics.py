@@ -18,7 +18,7 @@ class Logger:
         fileformatter = log.Formatter(f"[Session: {SESSION_ID}] %(asctime)s - %(levelname)s - %(message)s")
         stream_formatter = fileformatter
         """File handler"""
-        file_handler = RotatingFileHandler("log.log", maxBytes=5*1024*1024, backupCount=5, encoding="utf-8", mode="a")
+        file_handler = RotatingFileHandler("log.log", maxBytes=5 * 1024 * 1024, backupCount=5, encoding="utf-8", mode="a")
         file_handler.setFormatter(fileformatter)
         _logger.addHandler(file_handler)
 

@@ -1,13 +1,10 @@
-from http import client
-
 import httpx
 import pytest
-from unittest.mock import AsyncMock
 
 from icecream import ic
 
-from src.app.appsetting.appsettings import appsettings
-from src.app.services.data_capturer import process_url, fetch_once, fetch_pagespeed_metrics
+from src.appsetting.appsettings import appsettings
+from src.app.services.capturer import process_url, fetch_once, fetch_pagespeed_metrics
 
 
 # create data_mocks data for data_capturer, so that testing woulnd need to use real API every time

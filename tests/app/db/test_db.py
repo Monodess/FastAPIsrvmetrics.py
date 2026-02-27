@@ -1,10 +1,9 @@
 import re
 
 import pytest
-from icecream import ic
 from sqlalchemy import text
 
-from src.app.appsetting.logger import Logger
+from src.appsetting.logger import Logger
 from src.app.db.engine import db_engine
 
 

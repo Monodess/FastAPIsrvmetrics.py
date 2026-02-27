@@ -4,7 +4,7 @@ from src.app.models.models import Healthcheck, PageSpeed
 
 
 class Tables(Enum):
-    HEATHCHECK = Healthcheck
+    HEALTHCHECK = Healthcheck
     PAGESPEED = PageSpeed
 
 
