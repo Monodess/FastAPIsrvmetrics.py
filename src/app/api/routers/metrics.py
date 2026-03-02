@@ -1,11 +1,8 @@
 from fastapi import APIRouter
-from oci.waas.models import HealthCheck
 from starlette.requests import Request
 
 from src.app.DAL.data_reader import find_by
 from src.app.DAL.data_writer import write
-from src.app.scheme.alchemy_tables import pagespeed_table
-from src.app.scheme.contracts import Tables
 from src.app.services.capturer import process_url
 from src.app.services.parser import parse_both
 from src.appsetting.appsettings import appsettings
@@ -23,8 +20,8 @@ async def capture(request: Request, url: str):
 
 """TODO: make a video"""
 @router.get("/")
-def read_db(table: str):
-    return find_by(table)
+def read_db(table: str, **kwargs):
+    return find_by(table, kwargs)
 
 
 
