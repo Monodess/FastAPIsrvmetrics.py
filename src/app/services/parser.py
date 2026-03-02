@@ -9,7 +9,7 @@ import os
 from dotenv import load_dotenv
 from icecream import ic
 
-"""TODO: ORM is already a way to operate data like objects with db integration
+"""TODO: ORM is already a way to operate data like objects with DB integration
    That why parsing implies using those models (with no additional dto) 
 """
 from src.app.models.models import Healthcheck, PageSpeed

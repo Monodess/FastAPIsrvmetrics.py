@@ -6,8 +6,8 @@ from typing import Type
 
 from sqlalchemy import select
 
-from src.app.db.config import Settings
-from src.app.db.session import get_db
+from src.app.DB.config import Settings
+from src.app.DB.session import get_db
 from src.app.scheme.base import Base
 from src.app.scheme.contracts import Tables
 from src.appsetting.logger import Logger
@@ -16,7 +16,7 @@ settings = Settings()
 
 """This function uses Core Sql-alchemy 
         functions to read data"""
-async def find_by(table: str, **kwargs) :
+async def find_by(table: str) : #dynamic query param?
     """Example: data = await find_by(Healthcheck, url="https://chromewebstore.google.com/", status=200, is_up=1...)"""
     db_context = asynccontextmanager(get_db)
     try:

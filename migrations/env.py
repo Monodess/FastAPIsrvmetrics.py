@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import async_engine_from_config
 
 from alembic import context
 
-from src.app.db.config import Settings
+from src.app.DB.config import Settings
 from src.app.scheme.base import Base
 
 
@@ -91,7 +91,7 @@ async def run_async_migrations() -> None:
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""
-    # Change db url with settings from "config"
+    # Change DB url with settings from "config"
     configuration = config.get_section(config.config_ini_section)
     configuration["sqlalchemy.url"] = settings.database_url
 
@@ -99,8 +99,8 @@ def run_migrations_online() -> None:
 
 
 if context.is_offline_mode():
-    #without connecting to db(only creates sql script)
+    #without connecting to DB(only creates sql script)
     run_migrations_offline()
 else:
-    #connect to db and make real-time
+    #connect to DB and make real-time
     run_migrations_online()

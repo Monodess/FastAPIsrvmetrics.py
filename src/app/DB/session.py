@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker
 
 from src.appsetting.logger import Logger
-from src.app.db.engine import db_engine
+from src.app.DB.engine import db_engine
 
 #fabric
 AsyncSessionLocal = async_sessionmaker(

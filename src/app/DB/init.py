@@ -4,10 +4,10 @@ from icecream import ic
 #engine is still alive after dispose. not connected
 from sqlalchemy import text
 
-from src.app.db.engine import root_engine, db_engine
+from src.app.DB.engine import root_engine, db_engine
 from src.app.scheme.alchemy_tables import metadata_obj
 
-#db health check
+#DB health check
 async def setup_database():
    async with root_engine.begin() as conn:
         try:
