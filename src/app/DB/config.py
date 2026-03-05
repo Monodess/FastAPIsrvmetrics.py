@@ -3,12 +3,9 @@ DB configuration module
 This script handles loading of .env variables
 using Pydantic Settings
 """
-import os
 from pathlib import Path
 
-from icecream import ic
 from pydantic_settings import BaseSettings, SettingsConfigDict
-
 
 __CURRENT_PATH__ = Path(__file__).resolve().parent
 __ENV_PATH__ = __CURRENT_PATH__ / ".env"

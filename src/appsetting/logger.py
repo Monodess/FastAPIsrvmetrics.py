@@ -2,7 +2,6 @@ import logging
 import logging as log
 import sys
 import uuid
-from logging import basicConfig
 from logging.handlers import RotatingFileHandler
 
 """Logger class that implements 2 handlers (file and stream)"""

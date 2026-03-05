@@ -1,8 +1,8 @@
 import pytest
-from icecream import ic
 
-from tests.data_mocks.mock_data import mock_capture_data
 from src.app.models.models import Healthcheck, PageSpeed
+from tests.data_mocks.mock_data import mock_capture_data
+
 
 @pytest.fixture()
 def mock_orm_health_obj(mock_capture_data):

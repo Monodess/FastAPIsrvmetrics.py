@@ -1,10 +1,9 @@
 import httpx
 import pytest
-
 from icecream import ic
 
-from src.appsetting.appsettings import appsettings
 from src.app.services.capturer import process_url, fetch_once, fetch_pagespeed_metrics
+from src.appsetting.appsettings import appsettings
 
 
 # create data_mocks data for data_capturer, so that testing woulnd need to use real API every time

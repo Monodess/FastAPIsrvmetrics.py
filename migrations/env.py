@@ -1,18 +1,13 @@
 import asyncio
 from logging.config import fileConfig
-from pathlib import Path
 
-from icecream import ic
-from pydantic_settings import SettingsConfigDict
+from alembic import context
 from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from alembic import context
-
 from src.app.DB.config import Settings
 from src.app.scheme.base import Base
-
 
 settings = Settings()
 
@@ -29,7 +24,6 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from src.app.models.models import PageSpeed, Healthcheck
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,

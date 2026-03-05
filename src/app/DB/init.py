@@ -1,11 +1,12 @@
 from icecream import ic
-#engine dispose kills all pool
-#engine begin opens pool (5)
-#engine is still alive after dispose. not connected
+# engine dispose kills all pool
+# engine begin opens pool (5)
+# engine is still alive after dispose. not connected
 from sqlalchemy import text
 
 from src.app.DB.engine import root_engine, db_engine
 from src.app.scheme.alchemy_tables import metadata_obj
+
 
 #DB health check
 async def setup_database():

@@ -1,12 +1,4 @@
-import asyncio
-from collections.abc import Iterable
-
-from icecream import ic
-from pydantic import validate_call
-from sqlalchemy import text
-
 from src.app.DB.config import Settings
-from src.app.DB.engine import db_engine
 from src.app.DB.session import get_db
 from src.app.models.models import PageSpeed, Healthcheck
 from src.appsetting.logger import Logger
