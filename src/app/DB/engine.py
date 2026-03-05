@@ -1,4 +1,3 @@
-from icecream import ic
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from src.app.DB.config import Settings

@@ -1,10 +1,9 @@
 from datetime import datetime
 from typing import Optional
 
-from sqlalchemy import String, DateTime, func, Float, Text
+from sqlalchemy import String, DateTime, func, Float
 from sqlalchemy.orm import Mapped, mapped_column
 
-from src.app.scheme.alchemy_tables import healthcheck_table, pagespeed_table
 from src.app.scheme.base import Base
 
 """

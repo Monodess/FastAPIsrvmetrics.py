@@ -4,13 +4,14 @@ This script handles loading of .env variables
 using Pydantic Settings
 """
 
-from icecream import ic
-from pydantic_settings import BaseSettings, SettingsConfigDict
 import os
 from pathlib import Path
 
+from icecream import ic
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
 #setting main root
-__BASE_PATH__ = Path(__file__).resolve().parent.parent.parent
+__BASE_PATH__ = Path(__file__).resolve().parent.parent
 __ENV_PATH__ = __BASE_PATH__/".env"
 
 class Configuration(BaseSettings):
@@ -23,7 +24,7 @@ class Configuration(BaseSettings):
         extra='ignore',             #other fields in .env ignored
     )
 
-#keep this as singleton: either case can lead to bugs
+#keep this as singleton: another case can lead to bugs
 appsettings= Configuration()
 
 

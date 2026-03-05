@@ -1,10 +1,9 @@
 import httpx
 import pytest
-
 from icecream import ic
 
-from src.appsetting.appsettings import appsettings
 from src.app.services.capturer import process_url, fetch_once, fetch_pagespeed_metrics
+from src.appsetting.appsettings import appsettings
 
 
 # create data_mocks data for data_capturer, so that testing woulnd need to use real API every time
@@ -48,5 +47,4 @@ async def test_health_capturing():
 @pytest.mark.asyncio
 async def test_pagespeed_capturing():
     data = await fetch_pagespeed_metrics(get_client(True), get_url(), appsettings.PAGESPEED_API_KEY)
-    ic(data)
     assert "url" in data

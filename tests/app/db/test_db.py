@@ -3,9 +3,8 @@ import re
 import pytest
 from sqlalchemy import text
 
-from src.appsetting.logger import Logger
 from src.app.DB.engine import db_engine
-
+from src.appsetting.logger import Logger
 
 
 @pytest.mark.asyncio

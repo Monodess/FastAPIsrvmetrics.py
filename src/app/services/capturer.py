@@ -9,8 +9,6 @@ import httpx
 
 from src.appsetting.appsettings import appsettings
 
-
-
 """Health check function"""
 async def fetch_once(client: httpx.AsyncClient, url: str):
     t0 = time.perf_counter()
