@@ -1,11 +1,22 @@
-from contextlib import asynccontextmanager
-
-from fastapi import FastAPI
 from starlette.requests import Request
-
-from src.app.services.http import create_http_client
-
 
 
 def get_client (request: Request):
     return request.app.state.http_client
+
+"""This function parses query params with operators 
+                or single value"""
+def parse_filters(raw_filters: dict | None ):
+    processed_filters = {}
+    for key, val in raw_filters.items():
+        if "," in val:
+            # Split the op and the digit
+            op, clean_val = val.split(",", 1)
+            # Try parse digit into int
+            if clean_val.isdigit():
+                clean_val = int(clean_val)
+            processed_filters[key] = (op, clean_val)
+        else:
+            processed_filters[key] = int(val) if val.isdigit() else val
+    if processed_filters : return processed_filters
+    else: return None

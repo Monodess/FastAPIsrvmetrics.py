@@ -12,12 +12,10 @@ class Logger:
     LOG_DIR = PROJECT_ROOT / "logs"
     log_path = LOG_DIR / "log"
     def __init__(self):
-        super.__init__()
+        super().__init__()
         Path(self.LOG_DIR).mkdir(exist_ok=True)
 
     SESSION_ID = str(uuid.uuid4())[:8]
-
-    LOG_DIR.mkdir()
 
     """Get specific named logger"""
     _logger = log.getLogger("server_metrics")

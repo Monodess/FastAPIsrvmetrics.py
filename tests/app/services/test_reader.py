@@ -8,6 +8,6 @@ from src.app.scheme.contracts import Tables
 
 @pytest.mark.asyncio
 async def test_read_data():
-    data =  await find_by(Healthcheck, id=1)
-    await find_by(Tables.PAGESPEED, id=1)
+    data =  await find_by(Healthcheck, id=("<", 2))
+    data += await find_by(Tables.PAGESPEED.value, id=(">", 1))
     ic (data)
