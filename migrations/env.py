@@ -6,8 +6,8 @@ from sqlalchemy import pool
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
-from src.app.DB.config import Settings
-from src.app.scheme.base import Base
+from src.config.database import Settings
+from src.app.schemas.base import Base
 
 settings = Settings()
 
@@ -85,7 +85,7 @@ async def run_async_migrations() -> None:
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode."""
-    # Change DB url with settings from "config"
+    # Change database url with settings from "config"
     configuration = config.get_section(config.config_ini_section)
     configuration["sqlalchemy.url"] = settings.database_url
 
@@ -93,8 +93,8 @@ def run_migrations_online() -> None:
 
 
 if context.is_offline_mode():
-    #without connecting to DB(only creates sql script)
+    #without connecting to database(only creates sql script)
     run_migrations_offline()
 else:
-    #connect to DB and make real-time
+    #connect to database and make real-time
     run_migrations_online()

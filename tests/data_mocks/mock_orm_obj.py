@@ -1,6 +1,6 @@
 import pytest
 
-from src.app.models.models import Healthcheck, PageSpeed
+from src.app.infrastructure.database.models import Healthcheck, PageSpeed
 from tests.data_mocks.mock_data import mock_capture_data
 
 

@@ -1,16 +1,19 @@
-from fastapi.openapi.docs import get_swagger_ui_html
-
-from src.app.api.app import get_app
-from src.app.api.routers.any import ANYTHING
+from fastapi import FastAPI
 from src.app.api.routers.metrics import router
+from src.app.api.app import lifespan
 
-app = get_app()
 
-"""Root handler"""
-@app.get("/")
-def read_root():
-    return {"Hello": "This is main metrics page"}
+def get_app():
+    app = FastAPI(lifespan=lifespan)
+    app.include_router(router)
+    return app
 
-app.include_router(router)
-app.include_router(ANYTHING)
+def _register_routes(app):
+    from src.app.api.routers.metrics import router
+    
+    app.include_router(router)
 
+if __name__ == '__main__':
+    import uvicorn
+    app = get_app()
+    uvicorn.run(app, host="0.0.0.0", port=8000)
